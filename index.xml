@@ -5,6 +5,16 @@
     <link>https://questbook.github.io/</link>
     <description>Recent content on Questbook official blog</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language><atom:link href="https://questbook.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <language>en-us</language>
+    <lastBuildDate>Mon, 16 May 2022 13:35:07 +0530</lastBuildDate><atom:link href="https://questbook.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Smart Contract Wallets v/s Metamask?</title>
+      <link>https://questbook.github.io/posts/smart-contract-wallets/</link>
+      <pubDate>Mon, 16 May 2022 13:35:07 +0530</pubDate>
+      
+      <guid>https://questbook.github.io/posts/smart-contract-wallets/</guid>
+      <description>Can you explain from a user experience standpoint how a smart contract wallet is different &amp;amp; better from metamask? Smart contract wallets are not a replacement of Metamask. The fundamental to understand here is that in ethereum and crypto, code is a first class citizen. You can write code that acts and behaves on behalf of a user. In contrast, this is not the case in web2 where humans are first class citizens and code is always blocked away with tps throttling, captchas etc.</description>
+    </item>
+    
   </channel>
 </rss>
