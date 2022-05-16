@@ -6,7 +6,16 @@
     <description>Recent content in Posts on Questbook official blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 16 May 2022 13:35:07 +0530</lastBuildDate><atom:link href="https://blog.questbook.xyz/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 16 May 2022 14:16:54 +0530</lastBuildDate><atom:link href="https://blog.questbook.xyz/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>What Is Staking Non Technical</title>
+      <link>https://blog.questbook.xyz/posts/what-is-staking-non-technical/</link>
+      <pubDate>Mon, 16 May 2022 14:16:54 +0530</pubDate>
+      
+      <guid>https://blog.questbook.xyz/posts/what-is-staking-non-technical/</guid>
+      <description>Can you explain the economics behind the concept of staking from a non technical point of view? Sure. Different staking mechanisms have different mechanisms but they do have some similarities which I&amp;rsquo;ll touch upon. The basis behind the blockchain as in bitcoin was that you secure the blocks by computing a certain number every 10 mins (called nonce). That is 10 min of high intensity computation. The security assumption is that if you are spending $100 of electricity in doing the computation, and getting rewarded something that is worth $101, it&amp;rsquo;s profitable to do those computation aka mining.</description>
+    </item>
+    
     <item>
       <title>Smart Contract Wallets v/s Metamask?</title>
       <link>https://blog.questbook.xyz/posts/smart-contract-wallets/</link>
