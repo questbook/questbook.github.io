@@ -6,7 +6,17 @@
     <description>Recent content on Questbook official blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 20 May 2022 13:21:44 +0530</lastBuildDate><atom:link href="https://blog.questbook.xyz/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 20 May 2022 15:26:44 +0530</lastBuildDate><atom:link href="https://blog.questbook.xyz/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Minimum Grants DAO with Maximum Community Participation</title>
+      <link>https://blog.questbook.xyz/posts/min-grants-dao-max-community-participation/</link>
+      <pubDate>Fri, 20 May 2022 15:26:44 +0530</pubDate>
+      
+      <guid>https://blog.questbook.xyz/posts/min-grants-dao-max-community-participation/</guid>
+      <description>Community participation is wrongly interpretted as vote on everything. Many grants DAO use the same model to run, what becomes, an inefficient grants program. Here, after working with a dozen grant programs in the ecosystem, I&amp;rsquo;ll lay out how you have a grant program that is both efficient and community driven.
+Delegated Capital Allocators The grant program must be divided into specialized grant programs, each with its own budget. This could be for various verticals like NFTs projects, DeFi, Infrastructure, Dev Tooling etc.</description>
+    </item>
+    
     <item>
       <title>I Don&#39;t Believe in Grants (the way they&#39;re run today)</title>
       <link>https://blog.questbook.xyz/posts/i-dont-believe-in-grants/</link>
