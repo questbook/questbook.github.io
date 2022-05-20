@@ -6,7 +6,17 @@
     <description>Recent content in Posts on Questbook official blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 20 May 2022 15:26:44 +0530</lastBuildDate><atom:link href="https://blog.questbook.xyz/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 20 May 2022 16:09:52 +0530</lastBuildDate><atom:link href="https://blog.questbook.xyz/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Gasless Smart Contract Wallet</title>
+      <link>https://blog.questbook.xyz/posts/gasless-smart-contract-wallet/</link>
+      <pubDate>Fri, 20 May 2022 16:09:52 +0530</pubDate>
+      
+      <guid>https://blog.questbook.xyz/posts/gasless-smart-contract-wallet/</guid>
+      <description>Most wallets are designed for DeFi. A wallet that works for your DApp, probably needs to be designed ground up.
+Gasless I think gaslessness is an under explored opportunity in web3 - a way to interact with onchain contracts without having to pay the gas. L2s like Optimism, Arbitrum, Polygon have low gas fees - why don&amp;rsquo;t we just use a cheaper chain for on-chain transactions/interactions? If you think gaslessness is about gas prices, you&amp;rsquo;re mistaken.</description>
+    </item>
+    
     <item>
       <title>Minimum Grants DAO with Maximum Community Participation</title>
       <link>https://blog.questbook.xyz/posts/min-grants-dao-max-community-participation/</link>
