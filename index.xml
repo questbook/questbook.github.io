@@ -6,7 +6,23 @@
     <description>Recent content on Questbook official blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 20 May 2022 16:09:52 +0530</lastBuildDate><atom:link href="https://blog.questbook.xyz/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 21 May 2022 23:30:17 +0530</lastBuildDate><atom:link href="https://blog.questbook.xyz/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Seaport and Protocol Ownership</title>
+      <link>https://blog.questbook.xyz/posts/seaport-protocol-ownership/</link>
+      <pubDate>Sat, 21 May 2022 23:30:17 +0530</pubDate>
+      
+      <guid>https://blog.questbook.xyz/posts/seaport-protocol-ownership/</guid>
+      <description>Originally :  
+The recent OpenSea launch of seaport is a masterstroke.
+Web3 moats are in composability traction; not (just) user traction.
+Firstly, the protocol launch context
+https://opensea.io/blog/announcements/introducing-seaport-protocol/?amp=1
+https://github.com/ProjectOpenSea/seaport
+Why give away everything for free, when you could have milked profits by owning the IP?
+OpenSea words the Seaport as a way to build with the community and support a generation of builders and developers. Though it may sound altruistic, it is actually in the best interest of their business to do this.</description>
+    </item>
+    
     <item>
       <title>Gasless Smart Contract Wallet</title>
       <link>https://blog.questbook.xyz/posts/gasless-smart-contract-wallet/</link>
