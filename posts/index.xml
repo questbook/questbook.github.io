@@ -6,7 +6,17 @@
     <description>Recent content in Posts on Questbook official blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 24 May 2022 14:35:43 +0530</lastBuildDate><atom:link href="https://blog.questbook.xyz/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 25 May 2022 16:33:15 +0530</lastBuildDate><atom:link href="https://blog.questbook.xyz/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Gasless Smart Contract Wallet Implementation</title>
+      <link>https://blog.questbook.xyz/posts/gasless-smart-contract-wallet-implementation/</link>
+      <pubDate>Wed, 25 May 2022 16:33:15 +0530</pubDate>
+      
+      <guid>https://blog.questbook.xyz/posts/gasless-smart-contract-wallet-implementation/</guid>
+      <description>This implementation borrows from EIP 1776 and EIP 4337. However simplified for a the use case of letting a dapp onbard a user to their platform without having to pay for the gas or install a wallet.
+Assumptions  The Dapp that wants to subsidize the gas for the user is a central entity, ie. the relayer. We&amp;rsquo;re not decentralizing the relayer network as proposed in EIP 1613  User identification - OAuth A centralized relayer can subsidize the gas of the end user.</description>
+    </item>
+    
     <item>
       <title>Podcasts : Tech Deepdives</title>
       <link>https://blog.questbook.xyz/posts/podcasts/</link>
