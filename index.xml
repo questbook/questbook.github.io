@@ -13,7 +13,7 @@
       <pubDate>Wed, 25 May 2022 16:33:15 +0530</pubDate>
       
       <guid>https://blog.questbook.xyz/posts/gasless-smart-contract-wallet-implementation/</guid>
-      <description>This implementation borrows from EIP 1776 and EIP 4337. However simplified for a the use case of letting a dapp onbard a user to their platform without having to pay for the gas or install a wallet.
+      <description>This implementation borrows from EIP 1776 and EIP 4337. However, simplified for a the use case of letting a dapp onboard a user to their platform without having to pay for the gas or install a wallet.
 Assumptions  The Dapp that wants to subsidize the gas for the user is a central entity, ie. the relayer. We&amp;rsquo;re not decentralizing the relayer network as proposed in EIP 1613  User identification - OAuth A centralized relayer can subsidize the gas of the end user.</description>
     </item>
     
