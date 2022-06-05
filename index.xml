@@ -6,7 +6,30 @@
     <description>Recent content on Questbook official blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 25 May 2022 16:33:15 +0530</lastBuildDate><atom:link href="https://blog.questbook.xyz/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 05 Jun 2022 16:27:35 +0530</lastBuildDate><atom:link href="https://blog.questbook.xyz/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>How you can use Questbook to attract Builders</title>
+      <link>https://blog.questbook.xyz/posts/attract-builders-using-questbook/</link>
+      <pubDate>Sun, 05 Jun 2022 16:27:35 +0530</pubDate>
+      
+      <guid>https://blog.questbook.xyz/posts/attract-builders-using-questbook/</guid>
+      <description>Questbook is an Opportunity Wallet for builders. This is where builders explore opportunities to earn in crypto. These could be via Bounties, Grants or Investments you offer.
+Here some of the key features of Questbook that&amp;rsquo;ll help you attract the best builders.
+0. Full product Demo  1. Completely on chain : Transparent &amp;amp; Accountable program All the grants, bounties and investments programs you run will be on chain. This ensures transparency and accountability for the program.</description>
+    </item>
+    
+    <item>
+      <title>Inviting participation to Permissionless Work Improvement Proposals</title>
+      <link>https://blog.questbook.xyz/posts/work-improvement-proposals/</link>
+      <pubDate>Sun, 05 Jun 2022 16:00:32 +0530</pubDate>
+      
+      <guid>https://blog.questbook.xyz/posts/work-improvement-proposals/</guid>
+      <description>We&amp;rsquo;re committed to making permissionless work a reality to help millions of builders and contributors increase their economic mobility.
+The Questbook team has been working with the top DAOs and protocols to fine tune the process and deployed the first version of the workflow tool. But there&amp;rsquo;s a lot of work to be done. We need your help.
+There are a few broad directions we&amp;rsquo;re actively working on
+Delegated domain allocation Problems  A single capital allocation (grants/bounties/investments) program has numerous blind spots and will miss lot of opportunities A single capital allocation program will result in burn-out of the folks running them Voting on all grant and bounties is an unreasonable ask from the community, and inefficient for the community  Solution space  Multiple domain allocators - who run capital allocation programs in their domain of expertise All the domain allocators have full ownership of how to run the program, no community voting on every decision Full transparency of performance and direction, community members can initiate a no-confidence motion upon poor performance  Contribute Learn more  Minimum Grants DAO with Maximum Community Participation I don&amp;rsquo;t believe in the way grants are run today  Participate Permissionless Work Improvment Proposals Forum - Delegated Domain Allocation</description>
+    </item>
+    
     <item>
       <title>Gasless Smart Contract Wallet Implementation</title>
       <link>https://blog.questbook.xyz/posts/gasless-smart-contract-wallet-implementation/</link>
