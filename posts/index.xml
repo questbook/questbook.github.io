@@ -6,7 +6,19 @@
     <description>Recent content in Posts on Questbook official blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 05 Jun 2022 17:25:19 +0530</lastBuildDate><atom:link href="https://blog.questbook.xyz/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 05 Jun 2022 17:42:54 +0530</lastBuildDate><atom:link href="https://blog.questbook.xyz/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Research at Questbook</title>
+      <link>https://blog.questbook.xyz/posts/research-at-questbook/</link>
+      <pubDate>Sun, 05 Jun 2022 17:42:54 +0530</pubDate>
+      
+      <guid>https://blog.questbook.xyz/posts/research-at-questbook/</guid>
+      <description>Lot of infrastructure doesn&amp;rsquo;t exist for world class dapps to be built. If it doesn&amp;rsquo;t exist, we&amp;rsquo;ll build it.
+There are various threads of research that we&amp;rsquo;re actively exploring at Questbook. All of these will be exposed as composable tools and public goods to build on top.
+By developers. For developers.
+ZK ready Gasless Smart Contract Wallets  Client side burnable wallet Freshly deployed smart contract wallet for each user, with the burnable wallet as the signatory to the SCW Meta transactions relayer to pay for the gas for the first user experience EdDSA key pair to support snark proofs  That way, the end user doesn&amp;rsquo;t have to have a specific wallet to interact with.</description>
+    </item>
+    
     <item>
       <title>Questbook Composability</title>
       <link>https://blog.questbook.xyz/posts/questbook-composability/</link>
