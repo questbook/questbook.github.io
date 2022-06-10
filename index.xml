@@ -6,7 +6,18 @@
     <description>Recent content on Questbook official blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 05 Jun 2022 17:42:54 +0530</lastBuildDate><atom:link href="https://blog.questbook.xyz/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 10 Jun 2022 19:04:19 +0530</lastBuildDate><atom:link href="https://blog.questbook.xyz/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Your chain not supported on Questbook? No problem.</title>
+      <link>https://blog.questbook.xyz/posts/add-a-chain/</link>
+      <pubDate>Fri, 10 Jun 2022 19:04:19 +0530</pubDate>
+      
+      <guid>https://blog.questbook.xyz/posts/add-a-chain/</guid>
+      <description>Questbook is open sourced. Questbook is a product by the community, for the community. We support multiple EVM compatible chains. You can add support for your chain on Questbook in a few simple steps.
+As long as the chain meets the bare-bones requirements, it can be integrated into the product by submitting a simple PR with one YAML config file.
+You can see the instructions on the questbook/chains repository. Or follow the instructions on this video :  </description>
+    </item>
+    
     <item>
       <title>Research at Questbook</title>
       <link>https://blog.questbook.xyz/posts/research-at-questbook/</link>
