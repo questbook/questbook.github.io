@@ -6,7 +6,18 @@
     <description>Recent content in Posts on Questbook official blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 10 Jun 2022 19:04:19 +0530</lastBuildDate><atom:link href="https://blog.questbook.xyz/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 22 Jun 2022 19:00:10 +0530</lastBuildDate><atom:link href="https://blog.questbook.xyz/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Questbook Zapier Integration : A crashcourse in composability</title>
+      <link>https://blog.questbook.xyz/posts/questbook-zapier-integration/</link>
+      <pubDate>Wed, 22 Jun 2022 19:00:10 +0530</pubDate>
+      
+      <guid>https://blog.questbook.xyz/posts/questbook-zapier-integration/</guid>
+      <description>Questbook is an unopinionated multisig safe for allocating funds to builders. Protocols like Polygon, Solana, Celo, Aave etc. use Questbook to run their grants/bounty programs.
+Questbook is completely decentralized. We don&amp;rsquo;t own any proprietary data or run centralized servers. Even the data is either on-chain or stored on IPFS/Filecoin and delivered via Graph protocol.
+Questbook itself has been built composing on various other protocols that came before us. Today, we pay it forward.</description>
+    </item>
+    
     <item>
       <title>Your chain not supported on Questbook? No problem.</title>
       <link>https://blog.questbook.xyz/posts/add-a-chain/</link>
