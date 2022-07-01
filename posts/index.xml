@@ -6,7 +6,18 @@
     <description>Recent content in Posts on Questbook official blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 22 Jun 2022 19:00:10 +0530</lastBuildDate><atom:link href="https://blog.questbook.xyz/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 01 Jul 2022 17:47:05 +0530</lastBuildDate><atom:link href="https://blog.questbook.xyz/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Questbook proposal for Delegated Domain Allocators</title>
+      <link>https://blog.questbook.xyz/posts/delegated-domain-allocators/</link>
+      <pubDate>Fri, 01 Jul 2022 17:47:05 +0530</pubDate>
+      
+      <guid>https://blog.questbook.xyz/posts/delegated-domain-allocators/</guid>
+      <description>Grants is an effective way to reward contributors to the ecosystem, and make the protocol more valuable. We must identify active members of our community to run our grant program rather than a centralized committee.
+If you are actively contributing to the ecosystem, we believe you should also be allocated a budget to disburse as grants - to attract the highest quality builders.
+Foundation money should move as close as possible to the builder, especially during the bear market.</description>
+    </item>
+    
     <item>
       <title>Questbook Zapier Integration : A crashcourse in composability</title>
       <link>https://blog.questbook.xyz/posts/questbook-zapier-integration/</link>
