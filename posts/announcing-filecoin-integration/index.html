@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Announcing Filecoin Integration | Questbook official blog</title>
+<meta name="keywords" content="">
+<meta name="description" content="Questbook doesn&rsquo;t compromise on decentralization of the software stack. Questbook works with the best teams to push the boundaries of decentralized applications. As of today, we&rsquo;re proud to announce integration with Protocol Labs &amp; Filecoin.
+We&rsquo;ve previously talked a lot about the SACI Architecture for software applications. Storage is one of the most important parts of the tech-stack.
+We don&rsquo;t run our own centralized database or servers. All the data that on the grants &amp; bounties tool - including creating grants, developers applying, reviewers reviewing - are all data that is stored on chain or on decentralized storage.">
+<meta name="author" content="">
+<link rel="canonical" href="https://blog.questbook.xyz/posts/announcing-filecoin-integration/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.min.07556039b0a279fb0c1bcda12d37693523077f05f4954f3ee478afae7755c7fc.css" integrity="sha256-B1VgObCiefsMG82hLTdpNSMHfwX0lU8&#43;5HivrndVx/w=" rel="preload stylesheet" as="style">
+<script defer crossorigin="anonymous" src="/assets/js/highlight.min.27cd435cc9ed6abb4b496581b151804f79f366c412620272bb94e2f5f598ebcc.js" integrity="sha256-J81DXMntartLSWWBsVGAT3nzZsQSYgJyu5Ti9fWY68w="
+    onload="hljs.initHighlightingOnLoad();"></script>
+<link rel="icon" href="https://blog.questbook.xyz/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://blog.questbook.xyz/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://blog.questbook.xyz/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://blog.questbook.xyz/apple-touch-icon.png">
+<link rel="mask-icon" href="https://blog.questbook.xyz/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --hljs-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript><meta property="og:title" content="Announcing Filecoin Integration" />
+<meta property="og:description" content="Questbook doesn&rsquo;t compromise on decentralization of the software stack. Questbook works with the best teams to push the boundaries of decentralized applications. As of today, we&rsquo;re proud to announce integration with Protocol Labs &amp; Filecoin.
+We&rsquo;ve previously talked a lot about the SACI Architecture for software applications. Storage is one of the most important parts of the tech-stack.
+We don&rsquo;t run our own centralized database or servers. All the data that on the grants &amp; bounties tool - including creating grants, developers applying, reviewers reviewing - are all data that is stored on chain or on decentralized storage." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://blog.questbook.xyz/posts/announcing-filecoin-integration/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2022-06-14T16:47:25&#43;05:30" />
+<meta property="article:modified_time" content="2022-06-14T16:47:25&#43;05:30" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Announcing Filecoin Integration"/>
+<meta name="twitter:description" content="Questbook doesn&rsquo;t compromise on decentralization of the software stack. Questbook works with the best teams to push the boundaries of decentralized applications. As of today, we&rsquo;re proud to announce integration with Protocol Labs &amp; Filecoin.
+We&rsquo;ve previously talked a lot about the SACI Architecture for software applications. Storage is one of the most important parts of the tech-stack.
+We don&rsquo;t run our own centralized database or servers. All the data that on the grants &amp; bounties tool - including creating grants, developers applying, reviewers reviewing - are all data that is stored on chain or on decentralized storage."/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "Announcing Filecoin Integration",
+      "item": "https://blog.questbook.xyz/posts/announcing-filecoin-integration/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Announcing Filecoin Integration",
+  "name": "Announcing Filecoin Integration",
+  "description": "Questbook doesn\u0026rsquo;t compromise on decentralization of the software stack. Questbook works with the best teams to push the boundaries of decentralized applications. As of today, we\u0026rsquo;re proud to announce integration with Protocol Labs \u0026amp; Filecoin.\nWe\u0026rsquo;ve previously talked a lot about the SACI Architecture for software applications. Storage is one of the most important parts of the tech-stack.\nWe don\u0026rsquo;t run our own centralized database or servers. All the data that on the grants \u0026amp; bounties tool - including creating grants, developers applying, reviewers reviewing - are all data that is stored on chain or on decentralized storage.",
+  "keywords": [
+    
+  ],
+  "articleBody": "Questbook doesn’t compromise on decentralization of the software stack. Questbook works with the best teams to push the boundaries of decentralized applications. As of today, we’re proud to announce integration with Protocol Labs \u0026 Filecoin.\nWe’ve previously talked a lot about the SACI Architecture for software applications. Storage is one of the most important parts of the tech-stack.\nWe don’t run our own centralized database or servers. All the data that on the grants \u0026 bounties tool - including creating grants, developers applying, reviewers reviewing - are all data that is stored on chain or on decentralized storage.\nWe initially started with IPFS as our data store. As our product aged, we realized we were losing a lot of our data. We were able to pin it on the servers that we spun up, but they weren’t getting pinned on other servers. So either the data was unavailable or the data access became incredibly slow - rendering the product almost unusable.\nThat is when we realized, thanks to the amazing team at Protocol Labs, that a more efficient way to store and retrieve such data is using Filecoin to make data available all the time.\nWe have migrated to Filecoin using Web3.storage and our product feels much snappier and easier to use! Excited to see massive strides in infrastructure improvements in Web3!\n ",
+  "wordCount" : "222",
+  "inLanguage": "en",
+  "datePublished": "2022-06-14T16:47:25+05:30",
+  "dateModified": "2022-06-14T16:47:25+05:30",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blog.questbook.xyz/posts/announcing-filecoin-integration/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Questbook official blog",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://blog.questbook.xyz/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://blog.questbook.xyz/" accesskey="h" title="Questbook official blog (Alt + H)">Questbook official blog</a>
+            <span class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </span>
+        </div>
+        <ul id="menu">
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title">
+      Announcing Filecoin Integration
+    </h1>
+    <div class="post-meta"><span title='2022-06-14 16:47:25 +0530 IST'>June 14, 2022</span>
+
+</div>
+  </header> 
+  <div class="post-content"><p><a href="https://questbook.xyz">Questbook</a> doesn&rsquo;t compromise on decentralization of the software stack. Questbook works with the best teams to push the boundaries of decentralized applications. As of today, we&rsquo;re proud to announce integration with Protocol Labs &amp; Filecoin.</p>
+<p><img loading="lazy" src="../images/questbook_filecoin.png" alt="Filecoin x Questbook"  />
+</p>
+<p>We&rsquo;ve previously talked a lot about the <a href="https://blog.questbook.xyz/posts/saci-architecture-trustless/">SACI Architecture</a> for software applications. Storage is one of the most important parts of the tech-stack.</p>
+<p>We don&rsquo;t run our own centralized database or servers. All the data that on the <em>grants &amp; bounties</em> tool - including creating grants, developers applying, reviewers reviewing - are all data that is stored on chain or on decentralized storage.</p>
+<p>We initially started with IPFS as our data store. As our product aged, we realized we were losing a lot of our data. We were able to pin it on the servers that we spun up, but they weren&rsquo;t getting pinned on other servers. So either the data was unavailable or the data access became incredibly slow - rendering the product almost unusable.</p>
+<p>That is when we realized, thanks to the amazing team at Protocol Labs, that a more efficient way to store and retrieve such data is using Filecoin to make data available all the time.</p>
+<p>We have migrated to Filecoin using Web3.storage and our product feels much snappier and easier to use! Excited to see massive strides in infrastructure improvements in Web3!</p>
+<iframe width="560" height="315" src='https://www.youtube.com/embed/u8hDMGkUa-U' title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+    </ul>
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+    <span>&copy; 2022 <a href="https://blog.questbook.xyz/">Questbook official blog</a></span>
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://git.io/hugopapermod" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+</body>
+
+</html>

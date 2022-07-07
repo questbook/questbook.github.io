@@ -30,6 +30,17 @@ Questbook itself has been built composing on various other protocols that came b
     </item>
     
     <item>
+      <title>Announcing Filecoin Integration</title>
+      <link>https://blog.questbook.xyz/posts/announcing-filecoin-integration/</link>
+      <pubDate>Tue, 14 Jun 2022 16:47:25 +0530</pubDate>
+      
+      <guid>https://blog.questbook.xyz/posts/announcing-filecoin-integration/</guid>
+      <description>Questbook doesn&amp;rsquo;t compromise on decentralization of the software stack. Questbook works with the best teams to push the boundaries of decentralized applications. As of today, we&amp;rsquo;re proud to announce integration with Protocol Labs &amp;amp; Filecoin.
+We&amp;rsquo;ve previously talked a lot about the SACI Architecture for software applications. Storage is one of the most important parts of the tech-stack.
+We don&amp;rsquo;t run our own centralized database or servers. All the data that on the grants &amp;amp; bounties tool - including creating grants, developers applying, reviewers reviewing - are all data that is stored on chain or on decentralized storage.</description>
+    </item>
+    
+    <item>
       <title>Your chain not supported on Questbook? No problem.</title>
       <link>https://blog.questbook.xyz/posts/add-a-chain/</link>
       <pubDate>Fri, 10 Jun 2022 19:04:19 +0530</pubDate>
