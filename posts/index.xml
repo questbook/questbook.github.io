@@ -6,10 +6,21 @@
     <description>Recent content in Posts on Questbook official blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 01 Dec 2022 23:37:42 +0530</lastBuildDate>
+    <lastBuildDate>Fri, 30 Dec 2022 18:49:11 +0530</lastBuildDate>
     
 	<atom:link href="https://blog.questbook.xyz/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Grants != Preseed Funding</title>
+      <link>https://blog.questbook.xyz/posts/what-are-grants/</link>
+      <pubDate>Fri, 30 Dec 2022 18:49:11 +0530</pubDate>
+      
+      <guid>https://blog.questbook.xyz/posts/what-are-grants/</guid>
+      <description>We&amp;rsquo;ve been working with 30+ grant programs this year. Here is what separates the good grant programs from the nots.
+Devs or MBAs? Many grant programs view themselves as pre-seed funding. This is exactly wrong. Grants is capital allocation by devs to devs. Venture capital is allocation by MBAs to devs.
+They are fundamentally different. VC is best suited for projects that have a business model or are likely to have one in near term future.</description>
+    </item>
     
     <item>
       <title>Interviewing Harsha on the CGP2.0 proposal </title>
