@@ -1,9 +1,288 @@
-<!doctype html><html lang=en-us><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge,chrome=1"><title>Questbook Zapier Integration : A crashcourse in composability | Questbook official blog</title><meta name=viewport content="width=device-width,minimum-scale=1"><meta name=description content="Questbook is an unopinionated multisig safe for allocating funds to builders. Protocols like Polygon, Solana, Celo, Aave etc. use Questbook to run their grants/bounty programs.
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Questbook Zapier Integration : A crashcourse in composability | Questbook official blog</title>
+<meta name="keywords" content="">
+<meta name="description" content="Questbook is an unopinionated multisig safe for allocating funds to builders. Protocols like Polygon, Solana, Celo, Aave etc. use Questbook to run their grants/bounty programs.
 Questbook is completely decentralized. We don&rsquo;t own any proprietary data or run centralized servers. Even the data is either on-chain or stored on IPFS/Filecoin and delivered via Graph protocol.
-Questbook itself has been built composing on various other protocols that came before us. Today, we pay it forward."><meta name=generator content="Hugo 0.107.0"><meta name=robots content="noindex, nofollow"><link rel=stylesheet href=/ananke/css/main.min.css><meta property="og:title" content="Questbook Zapier Integration : A crashcourse in composability"><meta property="og:description" content="Questbook is an unopinionated multisig safe for allocating funds to builders. Protocols like Polygon, Solana, Celo, Aave etc. use Questbook to run their grants/bounty programs.
+Questbook itself has been built composing on various other protocols that came before us. Today, we pay it forward.">
+<meta name="author" content="">
+<link rel="canonical" href="https://blog.questbook.xyz/posts/questbook-zapier-integration/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.708b074988e316d79541abfc11d7cedcb208303ee7b41a1c3ad624773b09d4f2.css" integrity="sha256-cIsHSYjjFteVQav8EdfO3LIIMD7ntBocOtYkdzsJ1PI=" rel="preload stylesheet" as="style">
+<script defer crossorigin="anonymous" src="/assets/js/highlight.f413e19d0714851f6474e7ee9632408e58ac146fbdbe62747134bea2fa3415e0.js" integrity="sha256-9BPhnQcUhR9kdOfuljJAjlisFG&#43;9vmJ0cTS&#43;ovo0FeA="
+    onload="hljs.initHighlightingOnLoad();"></script>
+<link rel="icon" href="https://blog.questbook.xyz/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://blog.questbook.xyz/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://blog.questbook.xyz/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://blog.questbook.xyz/apple-touch-icon.png">
+<link rel="mask-icon" href="https://blog.questbook.xyz/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --hljs-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript><meta property="og:title" content="Questbook Zapier Integration : A crashcourse in composability" />
+<meta property="og:description" content="Questbook is an unopinionated multisig safe for allocating funds to builders. Protocols like Polygon, Solana, Celo, Aave etc. use Questbook to run their grants/bounty programs.
 Questbook is completely decentralized. We don&rsquo;t own any proprietary data or run centralized servers. Even the data is either on-chain or stored on IPFS/Filecoin and delivered via Graph protocol.
-Questbook itself has been built composing on various other protocols that came before us. Today, we pay it forward."><meta property="og:type" content="article"><meta property="og:url" content="https://blog.questbook.xyz/posts/questbook-zapier-integration/"><meta property="article:section" content="posts"><meta property="article:published_time" content="2022-06-22T19:00:10+05:30"><meta property="article:modified_time" content="2022-06-22T19:00:10+05:30"><meta itemprop=name content="Questbook Zapier Integration : A crashcourse in composability"><meta itemprop=description content="Questbook is an unopinionated multisig safe for allocating funds to builders. Protocols like Polygon, Solana, Celo, Aave etc. use Questbook to run their grants/bounty programs.
+Questbook itself has been built composing on various other protocols that came before us. Today, we pay it forward." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://blog.questbook.xyz/posts/questbook-zapier-integration/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2022-06-22T19:00:10+05:30" />
+<meta property="article:modified_time" content="2022-06-22T19:00:10+05:30" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Questbook Zapier Integration : A crashcourse in composability"/>
+<meta name="twitter:description" content="Questbook is an unopinionated multisig safe for allocating funds to builders. Protocols like Polygon, Solana, Celo, Aave etc. use Questbook to run their grants/bounty programs.
 Questbook is completely decentralized. We don&rsquo;t own any proprietary data or run centralized servers. Even the data is either on-chain or stored on IPFS/Filecoin and delivered via Graph protocol.
-Questbook itself has been built composing on various other protocols that came before us. Today, we pay it forward."><meta itemprop=datePublished content="2022-06-22T19:00:10+05:30"><meta itemprop=dateModified content="2022-06-22T19:00:10+05:30"><meta itemprop=wordCount content="254"><meta itemprop=keywords content><meta name=twitter:card content="summary"><meta name=twitter:title content="Questbook Zapier Integration : A crashcourse in composability"><meta name=twitter:description content="Questbook is an unopinionated multisig safe for allocating funds to builders. Protocols like Polygon, Solana, Celo, Aave etc. use Questbook to run their grants/bounty programs.
-Questbook is completely decentralized. We don&rsquo;t own any proprietary data or run centralized servers. Even the data is either on-chain or stored on IPFS/Filecoin and delivered via Graph protocol.
-Questbook itself has been built composing on various other protocols that came before us. Today, we pay it forward."></head><body class="ma0 avenir bg-near-white"><header><div class=bg-black><nav class="pv3 ph3 ph4-ns" role=navigation><div class="flex-l justify-between items-center center"><a href=/ class="f3 fw2 hover-white no-underline white-90 dib">Questbook official blog</a><div class="flex-l items-center"><div class=ananke-socials></div></div></div></nav></div></header><main class=pb7 role=main><article class="flex-l flex-wrap justify-between mw8 center ph3"><header class="mt4 w-100"><aside class="instapaper_ignoref b helvetica tracked">POSTS</aside><div id=sharing class="mt3 ananke-socials"></div><h1 class="f1 athelas mt3 mb1">Questbook Zapier Integration : A crashcourse in composability</h1><time class="f6 mv4 dib tracked" datetime=2022-06-22T19:00:10+05:30>June 22, 2022</time></header><div class="nested-copy-line-height lh-copy serif f4 nested-links mid-gray pr4-l w-two-thirds-l"><p><img src=../images/zapierposter.png alt="Zapier + Questbook"></p><p><a href=https://questbook.xyz>Questbook</a> is an unopinionated multisig safe for allocating funds to builders. Protocols like Polygon, Solana, Celo, Aave etc. use Questbook to run their grants/bounty programs.</p><p>Questbook is completely decentralized. We don&rsquo;t own any proprietary data or run centralized servers. Even the data is either on-chain or stored on IPFS/Filecoin and delivered via Graph protocol.</p><p>Questbook itself has been built <em>composing</em> on various other protocols that came before us. Today, we pay it forward. Today, we&rsquo;re announcing the private beta of a Zapier Integration.</p><p>Questbook doesn&rsquo;t aim to solve all the problems. We focus on making sure that you are able to allocate funds from your treasury to builders in a seamless manner. However, you may have personal or corporate preferences on the specific processes you want to follow.</p><p>We&rsquo;ve long maintained that since all the data is open and on-chain, anyone can build applications and customizations on top of Questbook contracts. However, with this Zapier integration we make that data and events available to you on an easy to use dashboard, that you can connect with thousands of other applications already available on zapier.</p><p>Triggers include</p><ul><li>A new grant/bounty is created</li><li>A builder applied</li><li>A review was submitted</li><li>A payout was made</li><li>And, many more &mldr;</li></ul><p>You can see the full sourcecode at <a href=https://github.com/questbook/qb-api>https://github.com/questbook/qb-api</a></p><h1 id=some-usecases>Some usecases</h1><ul><li>Create automations for financial auditing</li><li>Notify the right people when a builder applies for a grant</li><li>Update a google sheet for archiving and record keeping</li><li>Create dashboards on HubSpot for org-wide visibility</li></ul><h1 id=demo>Demo</h1><p>By <a href=https://twitter.com/richik_chanda>Richik Chanda</a></p><iframe width=560 height=315 src=https://www.youtube.com/embed/nGeGqmDZOU4 title="YouTube video player" frameborder=0 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe><h1 id=get-access>Get access</h1><div data-tf-widget=mgEGZuoK data-tf-iframe-props="title=Typeform" data-tf-medium=snippet style=width:100%;height:400px></div><script src=//embed.typeform.com/next/embed.js></script><ul class=pa0></ul><div class="mt6 instapaper_ignoref"></div></div><aside class="w-30-l mt6-l"></aside></article></main><footer class="bg-black bottom-0 w-100 pa3" role=contentinfo><div class="flex justify-between"><a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href=https://blog.questbook.xyz/>&copy; Questbook official blog 2022</a><div><div class=ananke-socials></div></div></div></footer></body></html>
+Questbook itself has been built composing on various other protocols that came before us. Today, we pay it forward."/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "Questbook Zapier Integration : A crashcourse in composability",
+      "item": "https://blog.questbook.xyz/posts/questbook-zapier-integration/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Questbook Zapier Integration : A crashcourse in composability",
+  "name": "Questbook Zapier Integration : A crashcourse in composability",
+  "description": "Questbook is an unopinionated multisig safe for allocating funds to builders. Protocols like Polygon, Solana, Celo, Aave etc. use Questbook to run their grants/bounty programs.\nQuestbook is completely decentralized. We don\u0026rsquo;t own any proprietary data or run centralized servers. Even the data is either on-chain or stored on IPFS/Filecoin and delivered via Graph protocol.\nQuestbook itself has been built composing on various other protocols that came before us. Today, we pay it forward.",
+  "keywords": [
+    
+  ],
+  "articleBody": "Questbook is an unopinionated multisig safe for allocating funds to builders. Protocols like Polygon, Solana, Celo, Aave etc. use Questbook to run their grants/bounty programs.\nQuestbook is completely decentralized. We don’t own any proprietary data or run centralized servers. Even the data is either on-chain or stored on IPFS/Filecoin and delivered via Graph protocol.\nQuestbook itself has been built composing on various other protocols that came before us. Today, we pay it forward. Today, we’re announcing the private beta of a Zapier Integration.\nQuestbook doesn’t aim to solve all the problems. We focus on making sure that you are able to allocate funds from your treasury to builders in a seamless manner. However, you may have personal or corporate preferences on the specific processes you want to follow.\nWe’ve long maintained that since all the data is open and on-chain, anyone can build applications and customizations on top of Questbook contracts. However, with this Zapier integration we make that data and events available to you on an easy to use dashboard, that you can connect with thousands of other applications already available on zapier.\nTriggers include\n A new grant/bounty is created A builder applied A review was submitted A payout was made And, many more …  You can see the full sourcecode at https://github.com/questbook/qb-api\nSome usecases  Create automations for financial auditing Notify the right people when a builder applies for a grant Update a google sheet for archiving and record keeping Create dashboards on HubSpot for org-wide visibility  Demo By Richik Chanda\n Get access  ",
+  "wordCount" : "254",
+  "inLanguage": "en",
+  "datePublished": "2022-06-22T19:00:10+05:30",
+  "dateModified": "2022-06-22T19:00:10+05:30",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blog.questbook.xyz/posts/questbook-zapier-integration/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Questbook official blog",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://blog.questbook.xyz/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://blog.questbook.xyz/" accesskey="h" title="Questbook official blog (Alt + H)">Questbook official blog</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title">
+      Questbook Zapier Integration : A crashcourse in composability
+    </h1>
+    <div class="post-meta"><span title='2022-06-22 19:00:10 +0530 IST'>June 22, 2022</span>
+
+</div>
+  </header> 
+  <div class="post-content"><p><img loading="lazy" src="../images/zapierposter.png" alt="Zapier &#43; Questbook"  />
+</p>
+<p><a href="https://questbook.xyz">Questbook</a> is an unopinionated multisig safe for allocating funds to builders. Protocols like Polygon, Solana, Celo, Aave etc. use Questbook to run their grants/bounty programs.</p>
+<p>Questbook is completely decentralized. We don&rsquo;t own any proprietary data or run centralized servers. Even the data is either on-chain or stored on IPFS/Filecoin and delivered via Graph protocol.</p>
+<p>Questbook itself has been built <em>composing</em> on various other protocols that came before us. Today, we pay it forward. Today, we&rsquo;re announcing the private beta of a Zapier Integration.</p>
+<p>Questbook doesn&rsquo;t aim to solve all the problems. We focus on making sure that you are able to allocate funds from your treasury to builders in a seamless manner. However, you may have personal or corporate preferences on the specific processes you want to follow.</p>
+<p>We&rsquo;ve long maintained that since all the data is open and on-chain, anyone can build applications and customizations on top of Questbook contracts. However, with this Zapier integration we make that data and events available to you on an easy to use dashboard, that you can connect with thousands of other applications already available on zapier.</p>
+<p>Triggers include</p>
+<ul>
+<li>A new grant/bounty is created</li>
+<li>A builder applied</li>
+<li>A review was submitted</li>
+<li>A payout was made</li>
+<li>And, many more &hellip;</li>
+</ul>
+<p>You can see the full sourcecode at <a href="https://github.com/questbook/qb-api">https://github.com/questbook/qb-api</a></p>
+<h1 id="some-usecases">Some usecases<a hidden class="anchor" aria-hidden="true" href="#some-usecases">#</a></h1>
+<ul>
+<li>Create automations for financial auditing</li>
+<li>Notify the right people when a builder applies for a grant</li>
+<li>Update a google sheet for archiving and record keeping</li>
+<li>Create dashboards on HubSpot for org-wide visibility</li>
+</ul>
+<h1 id="demo">Demo<a hidden class="anchor" aria-hidden="true" href="#demo">#</a></h1>
+<p>By <a href="https://twitter.com/richik_chanda">Richik Chanda</a></p>
+<iframe width="560" height="315" src='https://www.youtube.com/embed/nGeGqmDZOU4' title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<h1 id="get-access">Get access<a hidden class="anchor" aria-hidden="true" href="#get-access">#</a></h1>
+<div data-tf-widget='mgEGZuoK' data-tf-iframe-props="title=Typeform" data-tf-medium="snippet" style="width:100%;height:400px;"></div><script src="//embed.typeform.com/next/embed.js"></script>
+
+
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+    </ul>
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+    <span>&copy; 2022 <a href="https://blog.questbook.xyz/">Questbook official blog</a></span>
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+</body>
+
+</html>

@@ -1,9 +1,316 @@
-<!doctype html><html lang=en-us><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge,chrome=1"><title>Questbook Invite Links: The web3 OTP | Questbook official blog</title><meta name=viewport content="width=device-width,minimum-scale=1"><meta name=description content="The Problem Web3 is a nascent stack, and a major challenge dApps like QuestBook face is educating users about web3 terminology and delivering products that are easy to use products as well as decentralised.
-One of QuestBook&rsquo;s workflows allowed DAOs to invite their team members to their organisation on QuestBook. However, to add the user to their organisation on chain, the organisation owner had to ask their team for their respective wallet addresses &ndash; which can feel unnatural, since wallet addresses have no easy-to-remember pattern like email addresses do."><meta name=generator content="Hugo 0.107.0"><meta name=robots content="noindex, nofollow"><link rel=stylesheet href=/ananke/css/main.min.css><meta property="og:title" content="Questbook Invite Links: The web3 OTP"><meta property="og:description" content="The Problem Web3 is a nascent stack, and a major challenge dApps like QuestBook face is educating users about web3 terminology and delivering products that are easy to use products as well as decentralised.
-One of QuestBook&rsquo;s workflows allowed DAOs to invite their team members to their organisation on QuestBook. However, to add the user to their organisation on chain, the organisation owner had to ask their team for their respective wallet addresses &ndash; which can feel unnatural, since wallet addresses have no easy-to-remember pattern like email addresses do."><meta property="og:type" content="article"><meta property="og:url" content="https://blog.questbook.xyz/posts/questbook-invite-links/"><meta property="article:section" content="posts"><meta property="article:published_time" content="2022-07-30T18:00:10+05:30"><meta property="article:modified_time" content="2022-07-30T18:00:10+05:30"><meta itemprop=name content="Questbook Invite Links: The web3 OTP"><meta itemprop=description content="The Problem Web3 is a nascent stack, and a major challenge dApps like QuestBook face is educating users about web3 terminology and delivering products that are easy to use products as well as decentralised.
-One of QuestBook&rsquo;s workflows allowed DAOs to invite their team members to their organisation on QuestBook. However, to add the user to their organisation on chain, the organisation owner had to ask their team for their respective wallet addresses &ndash; which can feel unnatural, since wallet addresses have no easy-to-remember pattern like email addresses do."><meta itemprop=datePublished content="2022-07-30T18:00:10+05:30"><meta itemprop=dateModified content="2022-07-30T18:00:10+05:30"><meta itemprop=wordCount content="841"><meta itemprop=keywords content><meta name=twitter:card content="summary"><meta name=twitter:title content="Questbook Invite Links: The web3 OTP"><meta name=twitter:description content="The Problem Web3 is a nascent stack, and a major challenge dApps like QuestBook face is educating users about web3 terminology and delivering products that are easy to use products as well as decentralised.
-One of QuestBook&rsquo;s workflows allowed DAOs to invite their team members to their organisation on QuestBook. However, to add the user to their organisation on chain, the organisation owner had to ask their team for their respective wallet addresses &ndash; which can feel unnatural, since wallet addresses have no easy-to-remember pattern like email addresses do."></head><body class="ma0 avenir bg-near-white"><header><div class=bg-black><nav class="pv3 ph3 ph4-ns" role=navigation><div class="flex-l justify-between items-center center"><a href=/ class="f3 fw2 hover-white no-underline white-90 dib">Questbook official blog</a><div class="flex-l items-center"><div class=ananke-socials></div></div></div></nav></div></header><main class=pb7 role=main><article class="flex-l flex-wrap justify-between mw8 center ph3"><header class="mt4 w-100"><aside class="instapaper_ignoref b helvetica tracked">POSTS</aside><div id=sharing class="mt3 ananke-socials"></div><h1 class="f1 athelas mt3 mb1">Questbook Invite Links: The web3 OTP</h1><time class="f6 mv4 dib tracked" datetime=2022-07-30T18:00:10+05:30>July 30, 2022</time></header><div class="nested-copy-line-height lh-copy serif f4 nested-links mid-gray pr4-l w-two-thirds-l"><h2 id=the-problem>The Problem</h2><p>Web3 is a nascent stack, and a major challenge dApps like QuestBook face is educating users about web3 terminology and delivering products that are easy to use products as well as decentralised.</p><p>One of QuestBook&rsquo;s workflows allowed DAOs to invite their team members to their organisation on QuestBook. However, to add the user to their organisation on chain, the organisation owner had to ask their team for their respective wallet addresses &ndash; which can feel unnatural, since wallet addresses have no easy-to-remember pattern like email addresses do.</p><p>We received a lot of feedback on the above mentioned flow from DAOs asking if there&rsquo;s a way for them to add their members via email or generate an invite link to send their team. Realising this is a UX problem we need to resolve for our users, we got to work.</p><h2 id=coming-up-with-a-solution>Coming Up With a Solution</h2><p>To allow users to invite by email, we&rsquo;d need to verify that the wallet wanting to join the organisation actually owned the email address that was invited. This entire flow had be on-chain and we couldn&rsquo;t think of a sane way to accomplish verifying the email on chain. So, we decided to tackle the invite link flow. Could we generate an invite link that an organisation owner can share with their team member, which they can use to join the organisation? And can we accomplish this purely on-chain?</p><p>We believed we could make it work somehow, and so we came up with a few approaches.</p><p>The inviter could hash a secret and then include the secret in the invite link and send this across to the invitee. The invitee would then pass the secret to the smart contract, which could then hash and check if the secret matched, if it does &ndash; we accept the invite and the user joins the DAO. Voila, on chain invites.</p><p>The problem with the above approach was that it could be front run, anybody observing the transaction could pay more gas and wrongly get into the organisation.</p><h2 id=the-solution>The Solution</h2><p>To resolve this front running problem, we thought of using public/private key crypto and so, we came up with the following framework &ndash; labelling it &ldquo;Anon Authoriser&rdquo;:</p><ol><li>Let&rsquo;s assume Alice wants to authorise Bob to take a certain action. In this case, Alice is the authoriser.</li><li>Alice Creates a public-private key pair <code>(Pu, Pr)</code> & compute address <code>A = Address(Pu)</code>.<ul><li>Note: your ETH address is a function of your public key &ndash; which is <code>A</code> in this case</li></ul></li><li>She denotes the purpose of the authorisation with a flag F. This flag prevents Bob from using Alice&rsquo;s authorisation to undertake another action that she hasn&rsquo;t authorised<ul><li>In our invite link case, the flag can be the hash of the organisation and role the invited user would undertake. This prevents misuse of the same invite.</li></ul></li><li>She then asks the SC (smart contract) to store this as a pending authorisation with the call: <code>generateAnonAuthorisation(A, F)</code></li><li>SC stores Alices wallet <code>Wa</code> and flag F against the address A</li><li>SC ensures this address hasn&rsquo;t been used already & returns successfully</li><li>Alice sends Bob her wallet address, the private key and authorisation flag (Wa, Pr, F)</li><li>Bob signs his wallet address (<code>Wb</code>) using <code>Pr</code> <code>S = Sign(Wb, Pr)</code></li><li>Bob requests the SC to verify authorisation using <code>anonAuthorise(Wa, F, S)</code></li><li>Solidity signature check returns the address that signed the message. The SC uses this to verify the signature sent by Bob, the message being Bob&rsquo;s wallet address <code>A' = Verify(Wb, S)</code></li><li>SC checks if there is a record stored against <code>A'</code></li><li>Finally, SC checks that the authoriser specified (<code>Wa</code> in this case)
-and the flag of purpose F specified match the existing record.</li><li>If everything matches, SC returns successfully and deletes the record
-so it cannot be used again</li><li>Bob is now considered authorised.<ul><li><code>Pr</code> can even be published online as it cannot be used now</li></ul></li><li>Note: this entire approach cannot be front run because in order to do that, another user would need to sign their wallet address &ndash; for which they&rsquo;d need the private key, and that they don&rsquo;t have access to.</li></ol><p><img src=../images/anon_authoriser_flow.png alt="Anon Authoriser Flow"></p><h2 id=the-labour>The Labour</h2><p>Once we had a framework in mind, we had to prove this works & so we built out this approach in a solidity smart contract, which you can access <a href=https://github.com/questbook/anon-authoriser>here</a>. This repo contains the SC & JS utils required to utilise anon-authoriser.</p><p>Then, we incorporated this flow into our grants smart contract to truly enable this invite link flow in our dApp. You can find the PR for the implementation <a href=https://github.com/questbook/grants-contracts-upgradeable/pull/14>here</a></p><p>Finally, the last leg of the solution was building out the frontend to interact with this SC, which you can find <a href=https://github.com/questbook/grants-frontend/pull/420>here</a></p><h2 id=the-fruit>The Fruit</h2><p>Our theory worked, we now had a secure, fully decentralised way to generate invite links on chain. We built the web3 equivalent of an OTP. You can create a DAO on QuestBook and <a href=https://www.beta.questbook.app/>try it out</a> now!</p><h3 id=preview>Preview</h3><p>What it looks like to create an anon-authoriser link</p><p><img src=../images/create_invite_link.png alt="Create Invite Link">
-<img src=../images/created_invite_link.png alt="Created Invite Link"></p><p>What it looks like to join an anon-authoriser link</p><p><img src=../images/join_invite_link.png alt="Join Invite Link">
-<img src=../images/joining_invite_link.png alt="Joining Invite Link"></p><ul class=pa0></ul><div class="mt6 instapaper_ignoref"></div></div><aside class="w-30-l mt6-l"></aside></article></main><footer class="bg-black bottom-0 w-100 pa3" role=contentinfo><div class="flex justify-between"><a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href=https://blog.questbook.xyz/>&copy; Questbook official blog 2022</a><div><div class=ananke-socials></div></div></div></footer></body></html>
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Questbook Invite Links: The web3 OTP | Questbook official blog</title>
+<meta name="keywords" content="">
+<meta name="description" content="The Problem Web3 is a nascent stack, and a major challenge dApps like QuestBook face is educating users about web3 terminology and delivering products that are easy to use products as well as decentralised.
+One of QuestBook&rsquo;s workflows allowed DAOs to invite their team members to their organisation on QuestBook. However, to add the user to their organisation on chain, the organisation owner had to ask their team for their respective wallet addresses &ndash; which can feel unnatural, since wallet addresses have no easy-to-remember pattern like email addresses do.">
+<meta name="author" content="">
+<link rel="canonical" href="https://blog.questbook.xyz/posts/questbook-invite-links/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.708b074988e316d79541abfc11d7cedcb208303ee7b41a1c3ad624773b09d4f2.css" integrity="sha256-cIsHSYjjFteVQav8EdfO3LIIMD7ntBocOtYkdzsJ1PI=" rel="preload stylesheet" as="style">
+<script defer crossorigin="anonymous" src="/assets/js/highlight.f413e19d0714851f6474e7ee9632408e58ac146fbdbe62747134bea2fa3415e0.js" integrity="sha256-9BPhnQcUhR9kdOfuljJAjlisFG&#43;9vmJ0cTS&#43;ovo0FeA="
+    onload="hljs.initHighlightingOnLoad();"></script>
+<link rel="icon" href="https://blog.questbook.xyz/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://blog.questbook.xyz/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://blog.questbook.xyz/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://blog.questbook.xyz/apple-touch-icon.png">
+<link rel="mask-icon" href="https://blog.questbook.xyz/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --hljs-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript><meta property="og:title" content="Questbook Invite Links: The web3 OTP" />
+<meta property="og:description" content="The Problem Web3 is a nascent stack, and a major challenge dApps like QuestBook face is educating users about web3 terminology and delivering products that are easy to use products as well as decentralised.
+One of QuestBook&rsquo;s workflows allowed DAOs to invite their team members to their organisation on QuestBook. However, to add the user to their organisation on chain, the organisation owner had to ask their team for their respective wallet addresses &ndash; which can feel unnatural, since wallet addresses have no easy-to-remember pattern like email addresses do." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://blog.questbook.xyz/posts/questbook-invite-links/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2022-07-30T18:00:10+05:30" />
+<meta property="article:modified_time" content="2022-07-30T18:00:10+05:30" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Questbook Invite Links: The web3 OTP"/>
+<meta name="twitter:description" content="The Problem Web3 is a nascent stack, and a major challenge dApps like QuestBook face is educating users about web3 terminology and delivering products that are easy to use products as well as decentralised.
+One of QuestBook&rsquo;s workflows allowed DAOs to invite their team members to their organisation on QuestBook. However, to add the user to their organisation on chain, the organisation owner had to ask their team for their respective wallet addresses &ndash; which can feel unnatural, since wallet addresses have no easy-to-remember pattern like email addresses do."/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "Questbook Invite Links: The web3 OTP",
+      "item": "https://blog.questbook.xyz/posts/questbook-invite-links/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Questbook Invite Links: The web3 OTP",
+  "name": "Questbook Invite Links: The web3 OTP",
+  "description": "The Problem Web3 is a nascent stack, and a major challenge dApps like QuestBook face is educating users about web3 terminology and delivering products that are easy to use products as well as decentralised.\nOne of QuestBook\u0026rsquo;s workflows allowed DAOs to invite their team members to their organisation on QuestBook. However, to add the user to their organisation on chain, the organisation owner had to ask their team for their respective wallet addresses \u0026ndash; which can feel unnatural, since wallet addresses have no easy-to-remember pattern like email addresses do.",
+  "keywords": [
+    
+  ],
+  "articleBody": "The Problem Web3 is a nascent stack, and a major challenge dApps like QuestBook face is educating users about web3 terminology and delivering products that are easy to use products as well as decentralised.\nOne of QuestBook’s workflows allowed DAOs to invite their team members to their organisation on QuestBook. However, to add the user to their organisation on chain, the organisation owner had to ask their team for their respective wallet addresses – which can feel unnatural, since wallet addresses have no easy-to-remember pattern like email addresses do.\nWe received a lot of feedback on the above mentioned flow from DAOs asking if there’s a way for them to add their members via email or generate an invite link to send their team. Realising this is a UX problem we need to resolve for our users, we got to work.\nComing Up With a Solution To allow users to invite by email, we’d need to verify that the wallet wanting to join the organisation actually owned the email address that was invited. This entire flow had be on-chain and we couldn’t think of a sane way to accomplish verifying the email on chain. So, we decided to tackle the invite link flow. Could we generate an invite link that an organisation owner can share with their team member, which they can use to join the organisation? And can we accomplish this purely on-chain?\nWe believed we could make it work somehow, and so we came up with a few approaches.\nThe inviter could hash a secret and then include the secret in the invite link and send this across to the invitee. The invitee would then pass the secret to the smart contract, which could then hash and check if the secret matched, if it does – we accept the invite and the user joins the DAO. Voila, on chain invites.\nThe problem with the above approach was that it could be front run, anybody observing the transaction could pay more gas and wrongly get into the organisation.\nThe Solution To resolve this front running problem, we thought of using public/private key crypto and so, we came up with the following framework – labelling it “Anon Authoriser”:\n Let’s assume Alice wants to authorise Bob to take a certain action. In this case, Alice is the authoriser. Alice Creates a public-private key pair (Pu, Pr) \u0026 compute address A = Address(Pu).  Note: your ETH address is a function of your public key – which is A in this case   She denotes the purpose of the authorisation with a flag F. This flag prevents Bob from using Alice’s authorisation to undertake another action that she hasn’t authorised  In our invite link case, the flag can be the hash of the organisation and role the invited user would undertake. This prevents misuse of the same invite.   She then asks the SC (smart contract) to store this as a pending authorisation with the call: generateAnonAuthorisation(A, F) SC stores Alices wallet Wa and flag F against the address A SC ensures this address hasn’t been used already \u0026 returns successfully Alice sends Bob her wallet address, the private key and authorisation flag (Wa, Pr, F) Bob signs his wallet address (Wb) using Pr S = Sign(Wb, Pr) Bob requests the SC to verify authorisation using anonAuthorise(Wa, F, S) Solidity signature check returns the address that signed the message. The SC uses this to verify the signature sent by Bob, the message being Bob’s wallet address A' = Verify(Wb, S) SC checks if there is a record stored against A' Finally, SC checks that the authoriser specified (Wa in this case) and the flag of purpose F specified match the existing record. If everything matches, SC returns successfully and deletes the record so it cannot be used again Bob is now considered authorised.  Pr can even be published online as it cannot be used now   Note: this entire approach cannot be front run because in order to do that, another user would need to sign their wallet address – for which they’d need the private key, and that they don’t have access to.  The Labour Once we had a framework in mind, we had to prove this works \u0026 so we built out this approach in a solidity smart contract, which you can access here. This repo contains the SC \u0026 JS utils required to utilise anon-authoriser.\nThen, we incorporated this flow into our grants smart contract to truly enable this invite link flow in our dApp. You can find the PR for the implementation here\nFinally, the last leg of the solution was building out the frontend to interact with this SC, which you can find here\nThe Fruit Our theory worked, we now had a secure, fully decentralised way to generate invite links on chain. We built the web3 equivalent of an OTP. You can create a DAO on QuestBook and try it out now!\nPreview What it looks like to create an anon-authoriser link\nWhat it looks like to join an anon-authoriser link\n",
+  "wordCount" : "841",
+  "inLanguage": "en",
+  "datePublished": "2022-07-30T18:00:10+05:30",
+  "dateModified": "2022-07-30T18:00:10+05:30",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blog.questbook.xyz/posts/questbook-invite-links/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Questbook official blog",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://blog.questbook.xyz/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://blog.questbook.xyz/" accesskey="h" title="Questbook official blog (Alt + H)">Questbook official blog</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title">
+      Questbook Invite Links: The web3 OTP
+    </h1>
+    <div class="post-meta"><span title='2022-07-30 18:00:10 +0530 IST'>July 30, 2022</span>
+
+</div>
+  </header> 
+  <div class="post-content"><h2 id="the-problem">The Problem<a hidden class="anchor" aria-hidden="true" href="#the-problem">#</a></h2>
+<p>Web3 is a nascent stack, and a major challenge dApps like QuestBook face is educating users about web3 terminology and delivering products that are easy to use products as well as decentralised.</p>
+<p>One of QuestBook&rsquo;s workflows allowed DAOs to invite their team members to their organisation on QuestBook. However, to add the user to their organisation on chain, the organisation owner had to ask their team for their respective wallet addresses &ndash; which can feel unnatural, since wallet addresses have no easy-to-remember pattern like email addresses do.</p>
+<p>We received a lot of feedback on the above mentioned flow from DAOs asking if there&rsquo;s a way for them to add their members via email or generate an invite link to send their team. Realising this is a UX problem we need to resolve for our users, we got to work.</p>
+<h2 id="coming-up-with-a-solution">Coming Up With a Solution<a hidden class="anchor" aria-hidden="true" href="#coming-up-with-a-solution">#</a></h2>
+<p>To allow users to invite by email, we&rsquo;d need to verify that the wallet wanting to join the organisation actually owned the email address that was invited. This entire flow had be on-chain and we couldn&rsquo;t think of a sane way to accomplish verifying the email on chain. So, we decided to tackle the invite link flow. Could we generate an invite link that an organisation owner can share with their team member, which they can use to join the organisation? And can we accomplish this purely on-chain?</p>
+<p>We believed we could make it work somehow, and so we came up with a few approaches.</p>
+<p>The inviter could hash a secret and then include the secret in the invite link and send this across to the invitee. The invitee would then pass the secret to the smart contract, which could then hash and check if the secret matched, if it does &ndash; we accept the invite and the user joins the DAO. Voila, on chain invites.</p>
+<p>The problem with the above approach was that it could be front run, anybody observing the transaction could pay more gas and wrongly get into the organisation.</p>
+<h2 id="the-solution">The Solution<a hidden class="anchor" aria-hidden="true" href="#the-solution">#</a></h2>
+<p>To resolve this front running problem, we thought of using public/private key crypto and so, we came up with the following framework &ndash; labelling it &ldquo;Anon Authoriser&rdquo;:</p>
+<ol>
+<li>Let&rsquo;s assume Alice wants to authorise Bob to take a certain action. In this case, Alice is the authoriser.</li>
+<li>Alice Creates a public-private key pair <code>(Pu, Pr)</code> &amp; compute address <code>A = Address(Pu)</code>.
+<ul>
+<li>Note: your ETH address is a function of your public key &ndash; which is <code>A</code> in this case</li>
+</ul>
+</li>
+<li>She denotes the purpose of the authorisation with a flag F. This flag prevents Bob from using Alice&rsquo;s authorisation to undertake another action that she hasn&rsquo;t authorised
+<ul>
+<li>In our invite link case, the flag can be the hash of the organisation and role the invited user would undertake. This prevents misuse of the same invite.</li>
+</ul>
+</li>
+<li>She then asks the SC (smart contract) to store this as a pending authorisation with the call: <code>generateAnonAuthorisation(A, F)</code></li>
+<li>SC stores Alices wallet <code>Wa</code> and flag F against the address A</li>
+<li>SC ensures this address hasn&rsquo;t been used already &amp; returns successfully</li>
+<li>Alice sends Bob her wallet address, the private key and authorisation flag (Wa, Pr, F)</li>
+<li>Bob signs his wallet address (<code>Wb</code>) using <code>Pr</code> <code>S = Sign(Wb, Pr)</code></li>
+<li>Bob requests the SC to verify authorisation using <code>anonAuthorise(Wa, F, S)</code></li>
+<li>Solidity signature check returns the address that signed the message. The SC uses this to verify the signature sent by Bob, the message being Bob&rsquo;s wallet address <code>A' = Verify(Wb, S)</code></li>
+<li>SC checks if there is a record stored against <code>A'</code></li>
+<li>Finally, SC checks that the authoriser specified (<code>Wa</code> in this case)
+and the flag of purpose F specified match the existing record.</li>
+<li>If everything matches, SC returns successfully and deletes the record
+so it cannot be used again</li>
+<li>Bob is now considered authorised.
+<ul>
+<li><code>Pr</code> can even be published online as it cannot be used now</li>
+</ul>
+</li>
+<li>Note: this entire approach cannot be front run because in order to do that, another user would need to sign their wallet address &ndash; for which they&rsquo;d need the private key, and that they don&rsquo;t have access to.</li>
+</ol>
+<p><img loading="lazy" src="../images/anon_authoriser_flow.png" alt="Anon Authoriser Flow"  />
+</p>
+<h2 id="the-labour">The Labour<a hidden class="anchor" aria-hidden="true" href="#the-labour">#</a></h2>
+<p>Once we had a framework in mind, we had to prove this works &amp; so we built out this approach in a solidity smart contract, which you can access <a href="https://github.com/questbook/anon-authoriser">here</a>. This repo contains the SC &amp; JS utils required to utilise anon-authoriser.</p>
+<p>Then, we incorporated this flow into our grants smart contract to truly enable this invite link flow in our dApp. You can find the PR for the implementation <a href="https://github.com/questbook/grants-contracts-upgradeable/pull/14">here</a></p>
+<p>Finally, the last leg of the solution was building out the frontend to interact with this SC, which you can find <a href="https://github.com/questbook/grants-frontend/pull/420">here</a></p>
+<h2 id="the-fruit">The Fruit<a hidden class="anchor" aria-hidden="true" href="#the-fruit">#</a></h2>
+<p>Our theory worked, we now had a secure, fully decentralised way to generate invite links on chain. We built the web3 equivalent of an OTP. You can create a DAO on QuestBook and <a href="https://www.beta.questbook.app/">try it out</a> now!</p>
+<h3 id="preview">Preview<a hidden class="anchor" aria-hidden="true" href="#preview">#</a></h3>
+<p>What it looks like to create an anon-authoriser link</p>
+<p><img loading="lazy" src="../images/create_invite_link.png" alt="Create Invite Link"  />
+
+<img loading="lazy" src="../images/created_invite_link.png" alt="Created Invite Link"  />
+</p>
+<p>What it looks like to join an anon-authoriser link</p>
+<p><img loading="lazy" src="../images/join_invite_link.png" alt="Join Invite Link"  />
+
+<img loading="lazy" src="../images/joining_invite_link.png" alt="Joining Invite Link"  />
+</p>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+    </ul>
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+    <span>&copy; 2022 <a href="https://blog.questbook.xyz/">Questbook official blog</a></span>
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+</body>
+
+</html>
